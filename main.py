@@ -5,7 +5,7 @@ sys.path.append("./grammar")
 sys.path.append("./postprocessing")
 sys.path.append("./stochastics")
 # local packages
-from grammar import *
+from grammar import grammar
 from postprocessing import *
 from stochastics import *
 
@@ -20,13 +20,16 @@ def __main__():
             token_queue.append(".") #add a period to the end of the sentence
 
     #generate the words for the paragraph
+
     f = open("words_dictionary.json","r")
     data = json.load(f)
     for token in token_queue:
             if token in data:
                     token_list = data[token]
                     paragraph.append(token_list[generateNumber(0,len(token_list)-1)])
+                    
     # print the paragraph
+
     output = ""
     for word in paragraph:
         output = output + word + " "
@@ -40,7 +43,8 @@ def __main__():
     output = capitalise_after_char(output, "!")
     output = capitalise_after_char(output, "?")
     
-    output = output[0].upper() + output[1:]
+    if(output != ""):
+        output = output[0].upper() + output[1:]
     print(output)
 
 __main__()

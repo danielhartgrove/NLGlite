@@ -1,5 +1,4 @@
 
-
 def capitalise_after_char(input_string, char):                          #capitalise the first letter after a given character, used for ".", "?" 
     output_string = ""
     for i in range(0, len(input_string)):
@@ -8,3 +7,8 @@ def capitalise_after_char(input_string, char):                          #capital
                     output_string += (input_string[i+1].upper())
                     i += 1
     return output_string
+
+def remove_banned_words(paragraph):
+        for word in paragraph:
+                if word in banned_words:
+                        paragraph.replace(word, "@#!&")
