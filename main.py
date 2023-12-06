@@ -1,17 +1,22 @@
-import random
 import json
+import sys
+
+sys.path.append("./grammar")
+sys.path.append("./postprocessing")
+sys.path.append("./stochastics")
 # local packages
-import grammar
-import postprocessing
-import stochastics
+from grammar import *
+from postprocessing import *
+from stochastics import *
 
 token_queue = []        #create the initial queue for the tokens
 paragraph = []          #create the initial queue for the paragraph
 
-def main():
+def __main__():
     #generate the structure of the paragraph
+    token_queue = []
     while(generateNumber(1,5) < 5):
-            matchCompoundComplex(generateNumber(1,3))
+            grammar.matchCompoundComplex(generateNumber(1,3), token_queue)
             token_queue.append(".") #add a period to the end of the sentence
 
     #generate the words for the paragraph
@@ -21,7 +26,6 @@ def main():
             if token in data:
                     token_list = data[token]
                     paragraph.append(token_list[generateNumber(0,len(token_list)-1)])
-
     # print the paragraph
     output = ""
     for word in paragraph:
@@ -33,7 +37,10 @@ def main():
     output = output.replace(" ;", ";") 
 
     output = capitalise_after_char(output, ".")
+    output = capitalise_after_char(output, "!")
+    output = capitalise_after_char(output, "?")
+    
     output = output[0].upper() + output[1:]
     print(output)
 
-main()
+__main__()

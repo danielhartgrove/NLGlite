@@ -1,4 +1,6 @@
-def capitalise_after_char(input_string, char):
+
+
+def capitalise_after_char(input_string, char):                          #capitalise the first letter after a given character, used for ".", "?" 
     output_string = ""
     for i in range(0, len(input_string)):
             output_string += input_string[i]

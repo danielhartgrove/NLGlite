@@ -1,12 +1,11 @@
 # NLGlite
-### A Lightweight NLP Solution Authored by Daniel Hartgrove for Dissertation Project @ The University of Nottingham (COMP3003)
-#### Supervised by Dr I Knight, Authored by Daniel Hartgrove
+A Lightweight NLP Solution Authored by Daniel Hartgrove for Dissertation Project @ The University of Nottingham (COMP3003). Supervised by Dr I Knight.
 
 ## Abstract
 This project was developed as a part of my dissertation for my Batchelor's degree at the University of Nottingham.
 
 ## Dependencies
-This project requires that you have Python 3 install. This can be installed (here)[https://www.python.org/downloads/]
+This project requires that you have Python 3 install. This can be installed [here](https://www.python.org/downloads/)
 
 ## How to Run
 This project is delightfully simple to install and run:
@@ -17,4 +16,4 @@ This project is delightfully simple to install and run:
 
 ## Capabilities
 Currently, this project is able to produce syntactically correct, but limited nonsense text. It does this using a Markov Driven Grammar, based on the work of Markov, Chomsky, Kelmendi and Compton.
-In the future, these sentences _should_ make sense all the time.
+In the future, these sentences _should_ make sense all of the time.
