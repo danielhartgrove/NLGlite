@@ -13,7 +13,7 @@ def __main__():
     else:
         reader.scrape(data, out_path, 1)
 
-    print("Model has been trained for the file: " + path + " and the data has been written to training_data.txt")
+    print("Model has been trained for the file: " + path + " and the data has been written to training_data.lcfg")
 
 
 __main__()

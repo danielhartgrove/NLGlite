@@ -10,6 +10,21 @@ class TrainingStructure:
     def __init__(self):
         self.data = []
 
+    def __str__(self):
+        for x in self.data:
+            print(x[0] + ", " + x[1] + ", " + x[2] + ", " + x[3] + ", " + x[4])
+        return ""
+
+    def get_size(self):
+        return len(self.data)
+
+    def get_wordlist(self):
+        a = []
+        for x in self.data:
+            a.append(x[0])
+
+        return a
+
     def insert(self, word_pair: wordPair, word_pair2: wordPair):
         # search the data structure for the word pair
         x = len(self.data)
@@ -38,7 +53,7 @@ class TrainingStructure:
             output_string = ""
             # write to a formatted string
             for j in range(5):
-                output_string += str(self.data[i][j]) + ", "
+                output_string += str(self.data[i][j]) + ","
             output_string += "\n"
             # write the formatted string to the file
             f.write(output_string)
@@ -50,7 +65,7 @@ class TrainingStructure:
         # for each line in the file
         for line in f:
             # split the line into a list
-            line_list = line.split(", ")
+            line_list = line.split(",")
             # remove the newline character from the last item
             line_list[4] = line_list[4].rstrip("\n")
             # add the list to the data structure

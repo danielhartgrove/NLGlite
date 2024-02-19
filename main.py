@@ -1,8 +1,11 @@
-import json
+import random
 import sys
+import numpy as np
+# public packages
 
-from postprocessing.postprocessing import capitalise_after_char
-from stochastics.stochastics import generate_number
+from postprocessing.postprocessing import process_sentence_end
+from stochastics.stochastics import generate_number, select_word_with_bias
+from trainer.trainingStructure import TrainingStructure
 from grammar import grammar
 
 sys.path.append("./grammar")
@@ -15,39 +18,69 @@ token_queue = []  # create the initial queue for the tokens
 paragraph = []  # create the initial queue for the paragraph
 
 
-def __main__():
-    # generate the structure of the paragraph
-    while generate_number(1, 5) < 5:
-        grammar.match_compound_complex(generate_number(1, 3), token_queue)
-        token_queue.append(".")  # add a period to the end of the sentence
+def function():
+    f = input("Which dataset (.lcfg) would you like to use? ")
+    ts = TrainingStructure()
+    ts.parse_from(f)
+
+    n = input("How many sentences do you want to generate? ")
+    for i in range(int(n)):
+        grammar.match_sentence(generate_number(1, 4), token_queue)
+    print(token_queue)
 
     # generate the words for the paragraph
+    last_word = ""
+    for i in range(len(token_queue)):
+        token = token_queue[i]
+        transition_vector = []
+        lookup_vector = []
+        # each token will correspond 1 : 1 to some part of the paragraph.
+        # therefore, we want to do a direct swap
+        for item in ts.data:
+            if token == "." or token == "," or token == ";" or token == "?" or token == ":":
+                paragraph.append(token)
+                break
+            # check that items are not punctuation
+            if last_word == "":
+                if token == item[1]:  # Corrected comparison here
+                    lookup_vector.append(item[2])  # the item we are moving to
+                    transition_vector.append(item[4])  # the probability we are choosing it
+            else:
+                if token == item[1] and last_word == item[0]:
+                    lookup_vector.append(item[2])  # the item we are moving to
+                    transition_vector.append(item[4])  # the probability we are choosing it
 
-    f = open("words_dictionary.json", "r")
-    data = json.load(f)
-    for token in token_queue:
-        if token in data:
-            token_list = data[token]
-            paragraph.append(token_list[generate_number(0, len(token_list) - 1)])
+        total = 0
+        for transition in transition_vector:
+            total = total + 1
 
-    # print the paragraph
+        print("Token: ", token, "| Lookup Vector: ", lookup_vector, "\nToken: ", token, "| Transition vector: ",
+              transition_vector, " | SizeOf: ", total, "\n")
 
+        if transition_vector:
+            last_word = select_word_with_bias(transition_vector, lookup_vector)
+            paragraph.append(last_word)
+        else:
+            last_word = ""
+            i -= 1
+
+    # postprocessing
     output = ""
     for word in paragraph:
         output = output + word + " "
 
-    # remove spaces before punctuation
-    output = output.replace(" .", ".")
-    output = output.replace(" ,", ",")
-    output = output.replace(" ;", ";")
-
-    output = capitalise_after_char(output, ".")
-    output = capitalise_after_char(output, "!")
-    output = capitalise_after_char(output, "?")
-
     if output != "":
         output = output[0].upper() + output[1:]
+
+    output = process_sentence_end(output)
+
+    # print the paragraph
     print(output)
 
 
-__main__()
+def __main__():
+    function()
+
+
+if __name__ == "__main__":
+    __main__()

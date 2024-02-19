@@ -1,14 +1,9 @@
-
-def capitalise_after_char(input_string, char):                          #capitalise the first letter after a given character, used for ".", "?" 
-    output_string = ""
-    for i in range(0, len(input_string)):
-            output_string += input_string[i]
-            if input_string[i] == char:
-                    output_string += (input_string[i+1].upper())
-                    i += 1
+def process_sentence_end(input_string):  # capitalise the first letter after a given character, used for ".", "?"
+    input_string = input_string.replace(" .", ".")
+    input_string = input_string.replace(" ,", ",")
+    input_string = input_string.replace(" ?", "?")
+    input_string = input_string.replace(" !", "?")
+    input_string = input_string.replace(" :", ":")
+    input_string = input_string.replace(" ;", ";")
+    output_string = input_string
     return output_string
-
-def remove_banned_words(paragraph):
-        for word in paragraph:
-                if word in banned_words:
-                        paragraph.replace(word, "@#!&")

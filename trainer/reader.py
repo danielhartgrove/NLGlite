@@ -8,7 +8,7 @@ def read_file(filepath):
     data = ""
     # if reading the right type of file
     if filepath.endswith(".txt"):
-        f = open(filepath, "r")
+        f = open(filepath, "r", encoding="utf8")
         # add each line to the data string
         for line in f:
             data += line + " "
@@ -23,7 +23,7 @@ def read_file(filepath):
 # scrape a file and write the contents to a specified file
 def scrape(text: str, output_file_path: str, type: int):
     # get the text from the file
-    text = text.rstrip("'\"/,,:;#+$£^&*()!{}[]¬`\n\t")
+    text = text.rstrip("\'\"/`,,:;#+$£^&*()!{}[]¬\`\n\t")
     text = text.replace("!", ".")
     text = text.replace("?", ".")
     sentences = text.split(".")

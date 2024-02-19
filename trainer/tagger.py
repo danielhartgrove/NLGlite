@@ -16,4 +16,4 @@ def tag_nltk(sentence):
 def tag_blob(sentence):
     text_blob = TextBlob(sentence)
     pos_tags = text_blob.tags
-    print(pos_tags)
+    return pos_tags
