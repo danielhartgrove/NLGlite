@@ -3,27 +3,42 @@ import platform
 
 from trainer import reader as reader
 
+from tkinter import messagebox
+
 
 def clear_data(filepath):
-    data = ""
     # if reading the right type of file
     if filepath.endswith(".lcfg"):
         f = open(filepath, "w", encoding="utf8")
         f.close()
+        return True
+    else:
+        if not os.path.exists(filepath):
+            messagebox.showerror("Error", f'File not found: {filepath}')
+
+    return False
 
 
 def edit_data(filepath):
     os_name = get_os()
     # opens the file in the user's default text editor
+    if ' ' in filepath:
+        filepath = '\"' + filepath + '\"'
+
     if os.path.exists(filepath):
         if os_name == "Windows":
             os.system(f"start {filepath}")
+            return True
         elif os_name == "Linux":
             os.system(f"xdg-open {filepath}")
+            return True
         elif os_name == "Darwin":
             os.system(f"open {filepath}")
+            return True
     else:
-        print("File not found.")
+        messagebox.showerror("Error", f'File not found: {filepath}')
+
+    return False
 
 
 def train_data(filepath, output_path, genre):
@@ -34,8 +49,10 @@ def train_data(filepath, output_path, genre):
 
     if genre == "BLOB":
         reader.scrape(data, output_path, 2)
+        return True
     else:
         reader.scrape(data, output_path, 1)
+        return True
 
 
 def get_os():

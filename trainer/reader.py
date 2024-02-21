@@ -21,14 +21,14 @@ def read_file(filepath):
 
 
 # scrape a file and write the contents to a specified file
-def scrape(text: str, output_file_path: str, type: int):
+def scrape(text: str, output_file_path: str, method: int):
     # get the text from the file
-    text = text.rstrip("\'\"/`,,:;#+$£^&*()!{}[]¬\`\n\t")
+    text = text.rstrip("\\\'\"/`,,:;#+$£^&*()!{}[]¬`\n\t")
     text = text.replace("!", ".")
     text = text.replace("?", ".")
     sentences = text.split(".")
     wordlist = []
-    if type == 1:
+    if method == 1:
         for sentence in sentences:
             wordlist += tag_nltk(sentence)
     else:
@@ -45,7 +45,7 @@ def scrape(text: str, output_file_path: str, type: int):
         wp2 = wordPair(wordlist[i][0], wordlist[i][1])
         # this will update the word pair's frequency if it already exists in the data structure else set it to 1
         ts.insert(wp1, wp2)
-
-        print(f"{i / x * 100}% complete", end="\r")
         # dump the data structure to a file
-    ts.dump_to_file(output_file_path)
+        ts.dump_to_file(output_file_path)
+
+    print("Training Completed")

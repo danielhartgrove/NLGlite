@@ -56,18 +56,20 @@ class TrainingStructure:
                 output_string += str(self.data[i][j]) + ","
             output_string += "\n"
             # write the formatted string to the file
-            f.write(output_string)
+            if (',,,,,' not in output_string) or (',,,,' not in output_string):
+                f.write(output_string)
         f.close()
 
     def parse_from(self, file_path):
         filepath = r"{}".format(file_path)
-        f = open(filepath, "r")
-        # for each line in the file
-        for line in f:
-            # split the line into a list
-            line_list = line.split(",")
-            # remove the newline character from the last item
-            line_list[4] = line_list[4].rstrip("\n")
-            # add the list to the data structure
-            self.data.append(line_list)
-        f.close()
+        if filepath != "":
+            f = open(filepath, "r")
+            # for each line in the file
+            for line in f:
+                # split the line into a list
+                line_list = line.split(",")
+                # remove the newline character from the last item
+                line_list[4] = line_list[4].rstrip("\n")
+                # add the list to the data structure
+                self.data.append(line_list)
+            f.close()
