@@ -1,6 +1,8 @@
 import nltk
 from textblob import TextBlob
 
+import spacy
+
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 
@@ -17,3 +19,4 @@ def tag_blob(sentence):
     text_blob = TextBlob(sentence)
     pos_tags = text_blob.tags
     return pos_tags
+

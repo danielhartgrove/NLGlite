@@ -56,7 +56,7 @@ class TrainingStructure:
                 output_string += str(self.data[i][j]) + ","
             output_string += "\n"
             # write the formatted string to the file
-            if (',,,,,' not in output_string) or (',,,,' not in output_string):
+            if ',,,,' not in output_string:
                 f.write(output_string)
         f.close()
 

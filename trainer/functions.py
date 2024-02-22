@@ -42,6 +42,7 @@ def edit_data(filepath):
 
 
 def train_data(filepath, output_path, genre):
+    print("Tagging...")
     data = reader.read_file(filepath)
 
     if output_path == "":
@@ -49,9 +50,11 @@ def train_data(filepath, output_path, genre):
 
     if genre == "BLOB":
         reader.scrape(data, output_path, 2)
+        print("Tagging Complete")
         return True
     else:
         reader.scrape(data, output_path, 1)
+        print("Tagging Complete")
         return True
 
 
