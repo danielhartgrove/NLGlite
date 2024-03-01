@@ -15,13 +15,13 @@ sys.path.append("./grammar")
 sys.path.append("./postprocessing")
 sys.path.append("./stochastics")
 
-method = "POS"
+method = "CORE"
 token_queue = []  # create the initial queue for the tokens
 paragraph = []  # create the initial queue for the paragraph
 num_of_sentences = 0
 
 
-def generate(f, n):
+def generate(f: str, n: int):
     global token_queue, paragraph
     token_queue = []
     paragraph = []
@@ -29,45 +29,50 @@ def generate(f, n):
     ts = TrainingStructure()
     ts.parse_from(f)
 
-    for i in range(int(n)):
+    for i in range(n):
         grammar.match_sentence(generate_number(1, 4), token_queue)
     print(token_queue)
 
     # generate the words for the paragraph
     last_word = ""
-    for i in range(len(token_queue)):
+    i = 0
+    while i < len(token_queue):
+        # take the item from the token queue
         token = token_queue[i]
+        # reset the vectors
         transition_vector = []
         lookup_vector = []
-        # each token will correspond 1 : 1 to some part of the paragraph.
-        # therefore, we want to do a direct swap
+        # each token will correspond 1 : 1 to some part of the paragraph and therefore, we want to do a direct swap
+
         for item in ts.data:
-            if token == "." or token == "," or token == ";" or token == "?" or token == ":":
-                paragraph.append(token)
-                break
+            # for each item in the data
+
             # check that items are not punctuation
+            if (token == "." or token == "," or token == ";" or token == "?" or token == "!"
+                    or token == ":" or token == "a"):
+                paragraph.append(token)
+                i += 1
+                break
+
+            # if the last generated word is nothing then pick only the valid tokens
             if last_word == "":
                 if token == item[1]:  # Corrected comparison here
                     lookup_vector.append(item[2])  # the item we are moving to
                     transition_vector.append(item[4])  # the probability we are choosing it
             else:
-                if token == item[1] and last_word == item[0]:
+                if token == item[3] and last_word == item[0]:  # Corrected comparison here
                     lookup_vector.append(item[2])  # the item we are moving to
                     transition_vector.append(item[4])  # the probability we are choosing it
 
-        total = 0
-        for _ in transition_vector:
-            total = total + 1
-
         print("Token: ", token, "| Lookup Vector: ", lookup_vector, "\nToken: ", token, "| Transition vector: ",
-              transition_vector, " | SizeOf: ", total, "\n")
+              transition_vector, " | SizeOf: ", len(transition_vector), "\n")
 
-        if transition_vector:
+        if len(transition_vector) != 0:
             last_word = select_word_with_bias(transition_vector, lookup_vector)
             paragraph.append(last_word)
+            i += 1
         else:
             last_word = ""
-            i -= 1
 
     # postprocessing
     output = ""
@@ -82,16 +87,18 @@ def generate(f, n):
     return output
 
 
-def update_sentence_number(n):
+def update_sentence_number(n: int):
     global num_of_sentences
     num_of_sentences = n
 
 
-def toggle(method_label):
+def toggle(method_label: Label):
     global method
     if method == "POS":
         method = "BLOB"
     elif method == "BLOB":
+        method = "CORE"
+    elif method == "CORE":
         method = "POS"
 
     method_label.config(text=("Method: " + method + " Tagging"))
@@ -135,12 +142,12 @@ def open_training_window(filepath: str):
     button_panel.pack(side=TOP, pady=10)
 
 
-def clear(filepath, sub):
+def clear(filepath: str, sub):
     clear_data(filepath)
     sub.destroy()
 
 
-def open_clear_popup(filepath):
+def open_clear_popup(filepath: str):
     sub = Tk()
     sub.minsize(400, 100)
     sub.maxsize(400, 100)
@@ -156,7 +163,7 @@ def open_clear_popup(filepath):
     button_panel.pack(side=TOP, pady=10)
 
 
-def update_output_box(output_box, text):
+def update_output_box(output_box, text: str):
     output_box.config(state=NORMAL)
     output_box.delete("1.0", END)
     output_box.insert("1.0", text)

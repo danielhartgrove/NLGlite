@@ -2,7 +2,7 @@ class wordPair:
     word = ""
     w_type = ""
 
-    def __init__(self, word, w_type):
+    def __init__(self, word: str, w_type: str):
         self.word = word
         self.type = w_type
     

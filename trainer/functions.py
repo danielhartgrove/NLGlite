@@ -6,7 +6,7 @@ from trainer import reader as reader
 from tkinter import messagebox
 
 
-def clear_data(filepath):
+def clear_data(filepath: str):
     # if reading the right type of file
     if filepath.endswith(".lcfg"):
         f = open(filepath, "w", encoding="utf8")
@@ -19,7 +19,7 @@ def clear_data(filepath):
     return False
 
 
-def edit_data(filepath):
+def edit_data(filepath: str):
     os_name = get_os()
     # opens the file in the user's default text editor
     if ' ' in filepath:
@@ -41,7 +41,7 @@ def edit_data(filepath):
     return False
 
 
-def train_data(filepath, output_path, genre):
+def train_data(filepath: str, output_path: str, genre: str):
     print("Tagging...")
     data = reader.read_file(filepath)
 
@@ -50,11 +50,12 @@ def train_data(filepath, output_path, genre):
 
     if genre == "BLOB":
         reader.scrape(data, output_path, 2)
-        print("Tagging Complete")
+        return True
+    elif genre == "CORE":
+        reader.scrape(data, output_path, 3)
         return True
     else:
         reader.scrape(data, output_path, 1)
-        print("Tagging Complete")
         return True
 
 

@@ -1,11 +1,11 @@
 from trainer.trainingStructure import TrainingStructure
 from trainer.wordPair import wordPair
 from trainer.tagger import *
-import timeit
+from dh_popup import dh_popup as dh
 
 
 # read a file and return the contents
-def read_file(filepath):
+def read_file(filepath: str):
     data = ""
     # if reading the right type of file
     if filepath.endswith(".txt"):
@@ -21,22 +21,36 @@ def read_file(filepath):
         exit(1)  # exit with error code 1
 
 
+def process_wordlist(wordlist: [(str, str)]):
+    x = len(wordlist)
+    commonly_mistagged_words_override = [("the", "DT")]
+    y = len(commonly_mistagged_words_override)
+    for i in range(0, x):
+        for j in range(0, y):
+            if wordlist[i][0].lower() == commonly_mistagged_words_override[j][0]:
+                wordlist[i][1] = commonly_mistagged_words_override[j][1]
+
+
 # scrape a file and write the contents to a specified file
 def scrape(text: str, output_file_path: str, method: int):
-    start = timeit.timeit()
     # get the text from the file
-    text = text.rstrip("\\\'\"/`,,:;#+$£^&*()!{}[]¬`\n\t")
-    text = text.replace("!", ".")
-    text = text.replace("?", ".")
-    sentences = text.split(".")
+    banned_chars = [".", ",", "£", "!", "?", "£", "$", "%", "^", "&", "*", "(", ")", "@", "~", "#", "{", "}", "[", "]",
+                    "+", "_", "-", "=", "|", "\"", ":", ";", "/", "|", "\\", "'"]
+
+    for char in banned_chars:
+        text = text.replace(char, "")
+
     wordlist = []
     if method == 1:
-        for sentence in sentences:
-            wordlist += tag_nltk(sentence)
+        wordlist += tag_nltk(text)
+    elif method == 2:
+        wordlist += tag_blob(text)
     else:
-        for sentence in sentences:
-            wordlist += tag_blob(sentence)
+        wordlist += tag_core(text)
 
+    process_wordlist(wordlist)  # word list is a list of tuples
+
+    dh.popup("Training Complete", "Training Complete")
     # if the file exists create the trainingStructure from it
     ts = TrainingStructure()
     ts.parse_from(output_file_path)
@@ -48,7 +62,4 @@ def scrape(text: str, output_file_path: str, method: int):
         # this will update the word pair's frequency if it already exists in the data structure else set it to 1
         ts.insert(wp1, wp2)
         # dump the data structure to a file
-        ts.dump_to_file(output_file_path)
-        print(f'{(i/x)*100}% complete', end='\r')
-    end = timeit.timeit()
-    print("Training Completed in: ", end - start)
+    ts.dump_to_file(output_file_path)

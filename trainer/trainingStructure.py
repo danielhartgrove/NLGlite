@@ -45,7 +45,7 @@ class TrainingStructure:
                               1])
             return
 
-    def dump_to_file(self, file_path):
+    def dump_to_file(self, file_path: str):
         filepath = r"{}".format(file_path)
         f = open(filepath, "w")
         # for each item
@@ -60,7 +60,7 @@ class TrainingStructure:
                 f.write(output_string)
         f.close()
 
-    def parse_from(self, file_path):
+    def parse_from(self, file_path: str):
         filepath = r"{}".format(file_path)
         if filepath != "":
             f = open(filepath, "r")
