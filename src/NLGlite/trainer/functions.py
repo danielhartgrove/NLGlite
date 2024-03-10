@@ -1,7 +1,8 @@
 import os
 import platform
+import subprocess
 
-from trainer import reader as reader
+from src.NLGlite.trainer import reader as reader
 
 from tkinter import messagebox
 
@@ -20,24 +21,17 @@ def clear_data(filepath: str):
 
 
 def edit_data(filepath: str):
-    os_name = get_os()
     # opens the file in the user's default text editor
-    if ' ' in filepath:
-        filepath = '\"' + filepath + '\"'
 
     if os.path.exists(filepath):
-        if os_name == "Windows":
-            os.system(f"start {filepath}")
-            return True
-        elif os_name == "Linux":
-            os.system(f"xdg-open {filepath}")
-            return True
-        elif os_name == "Darwin":
-            os.system(f"open {filepath}")
-            return True
+        if os.name == "nt":  # For Windows
+            subprocess.Popen(["notepad.exe", filepath])
+        elif os.name == "posix":  # For Linux and Mac
+            subprocess.Popen(["vim", filepath])
+        else:
+            messagebox.showerror("Error", "Unsupported OS")
     else:
         messagebox.showerror("Error", f'File not found: {filepath}')
-
     return False
 
 
@@ -45,8 +39,13 @@ def train_data(filepath: str, output_path: str, genre: str):
     print("Tagging...")
     data = reader.read_file(filepath)
 
+    if not os.path.exists(filepath):
+        messagebox.showerror("Error", f'File not found: {filepath}')
+        return False
+
     if output_path == "":
-        output_path = "training_data.lcfg"  # training data liteconfig
+        messagebox.showerror("Error", f'File not found: {output_path}')
+        return False
 
     if genre == "BLOB":
         reader.scrape(data, output_path, 2)
@@ -57,6 +56,12 @@ def train_data(filepath: str, output_path: str, genre: str):
     else:
         reader.scrape(data, output_path, 1)
         return True
+
+
+def create_lcfg(filepath: str):
+    f = open(filepath, "w", encoding="utf8")
+    f.close()
+    return True
 
 
 def get_os():

@@ -1,7 +1,8 @@
-from trainer.trainingStructure import TrainingStructure
-from trainer.wordPair import wordPair
-from trainer.tagger import *
-from dh_popup import dh_popup as dh
+from tkinter import messagebox
+
+from src.NLGlite.trainer.trainingStructure import TrainingStructure
+from src.NLGlite.trainer.wordPair import wordPair
+from src.dh_popup import dh_popup as dh
 
 
 # read a file and return the contents
@@ -17,13 +18,12 @@ def read_file(filepath: str):
         return data
     else:
         # Otherwise we throw an error
-        print("Invalid file path.")
-        exit(1)  # exit with error code 1
+        messagebox.showerror("Error", f'File not found: {filepath}')
 
 
 def process_wordlist(wordlist: [(str, str)]):
     x = len(wordlist)
-    commonly_mistagged_words_override = [("the", "DT")]
+    commonly_mistagged_words_override = [("the", "DT")]  # manually add any commonly mistagged words here
     y = len(commonly_mistagged_words_override)
     for i in range(0, x):
         for j in range(0, y):
@@ -50,7 +50,7 @@ def scrape(text: str, output_file_path: str, method: int):
 
     process_wordlist(wordlist)  # word list is a list of tuples
 
-    dh.popup("Training Complete", "Training Complete")
+    dh.popup("Training Complete", "Training Complete", 100, 100)
     # if the file exists create the trainingStructure from it
     ts = TrainingStructure()
     ts.parse_from(output_file_path)

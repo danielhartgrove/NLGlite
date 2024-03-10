@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/data/books/shakespeare.txt" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/data/quotes/darth_vader.txt" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/training_data.lcfg" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/data/config/training_data.lcfg" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/data/text/books/shakespeare.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/data/text/dnd resources/armyofthedamned.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/data/text/quotes/darth_vader.txt" charset="windows-1252" />
     <file url="PROJECT" charset="windows-1252" />
   </component>
 </project>

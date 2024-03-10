@@ -4,7 +4,6 @@ import nltk
 from nltk.tag import StanfordPOSTagger
 from nltk.tag import StanfordNERTagger
 from textblob import TextBlob
-# from stat_parser import Parser
 
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
@@ -32,8 +31,8 @@ def tag_core(sentence: str):
     java_path = "C:/Program Files (x86)/Java/jre-1.8/bin/java.exe"
     os.environ["JAVAHOME"] = java_path
 
-    jar = "./trainer/stanford-postagger-full-2020-11-17/stanford-postagger.jar"
-    model = "./trainer/stanford-postagger-full-2020-11-17/models/english-bidirectional-distsim.tagger"
+    jar = "src/trainer/stanford-postagger-full-2020-11-17/stanford-postagger.jar"
+    model = "src/trainer/stanford-postagger-full-2020-11-17/models/english-bidirectional-distsim.tagger"
 
     st = StanfordPOSTagger(model, jar, encoding="utf-8")
 
@@ -43,3 +42,4 @@ def tag_core(sentence: str):
     for pair in pos_tags:
         pos_tags_list.append(list(pair))
     return pos_tags_list
+

@@ -1,4 +1,4 @@
-from trainer import wordPair
+from src.NLGlite.trainer import wordPair
 
 
 class TrainingStructure:

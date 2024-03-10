@@ -1,0 +1,18 @@
+[project]
+name = "NLGLite"
+version = "1.0.0"
+authors = [
+  { name="Daniel Hartgrove", email="hartgrovedaniel3@outlook.com" },
+]
+description = "A lightweight extension for NLG utilising NLTK functions"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/danielhartgrove/NLGlite"
+Issues = "https://github.com/danielhartgrove/NLGlite/issues"

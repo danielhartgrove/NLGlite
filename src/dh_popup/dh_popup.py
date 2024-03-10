@@ -4,10 +4,10 @@ from tkinter import *
 class popup(object):
     root = None
 
-    def __init__(self, title: str, msg: str):
+    def __init__(self, title: str, msg: str, width: int, height: int):
         self.top = Toplevel(popup.root)
-        self.top.minsize(100, 100)
-        self.top.maxsize(200, 100)
+        self.top.minsize(width, height)
+        self.top.maxsize(width, height)
         self.top.title(title)
 
         heading = Label(self.top, text=msg)
