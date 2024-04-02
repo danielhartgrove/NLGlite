@@ -2,6 +2,11 @@ from tkinter import *
 
 
 class popup(object):
+
+    """
+    Really basic override for a popup window that just takes in two strings, width and height and writes the information
+    to the popup window.
+    """
     root = None
 
     def __init__(self, title: str, msg: str, width: int, height: int):
