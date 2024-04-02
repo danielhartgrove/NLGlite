@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module NLGlite.trainer.functions</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="../NLGlite.html" class="white">NLGlite</a>.<a href="NLGlite.trainer.html" class="white">trainer</a>.functions</strong></td>
+<td class="extra"><a href="../..">index</a><br><a href="file:c%3A%5Cusers%5Cdanbo%5Cdocuments%5Cuon_compsci%5Cyear%203%5Ccomp3003%5Cproject%5Cnlglite%5Cnlglite%5Ctrainer%5Cfunctions.py">c:\users\danbo\documents\uon_compsci\year 3\comp3003\project\nlglite\nlglite\trainer\functions.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="../grammar/NLGlite.grammar.grammar.html">NLGlite.grammar.grammar</a><br>
+<a href="tkinter.messagebox.html">tkinter.messagebox</a><br>
+</td><td class="multicolumn"><a href="os.html">os</a><br>
+<a href="NLGlite.trainer.reader.html">NLGlite.trainer.reader</a><br>
+</td><td class="multicolumn"><a href="subprocess.html">subprocess</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-capitalise"><strong>capitalise</strong></a>(s: str)</dt><dd><span class="code">wrapper&nbsp;for&nbsp;the&nbsp;.capitalize()&nbsp;function&nbsp;because&nbsp;it&nbsp;doesn't&nbsp;work&nbsp;on&nbsp;array&nbsp;elements<br>
+:param&nbsp;s:&nbsp;The&nbsp;word&nbsp;to&nbsp;capitalize<br>
+:return:&nbsp;The&nbsp;capitalized&nbsp;word</span></dd></dl>
+ <dl><dt><a name="-clear_data"><strong>clear_data</strong></a>(filepath: str)</dt><dd><span class="code">Clears&nbsp;the&nbsp;.lcfg&nbsp;file&nbsp;that&nbsp;is&nbsp;passed&nbsp;to&nbsp;it<br>
+:param&nbsp;filepath:&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;.lcfg&nbsp;file<br>
+:return:&nbsp;Code&nbsp;constant&nbsp;depending&nbsp;on&nbsp;success.&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;throw&nbsp;errors.&nbsp;Either&nbsp;GOOD,&nbsp;NO_FILE&nbsp;or&nbsp;BAD_FILE</span></dd></dl>
+ <dl><dt><a name="-create_lcfg"><strong>create_lcfg</strong></a>(filepath: str)</dt><dd><span class="code">Creates&nbsp;.lcfg&nbsp;file&nbsp;from&nbsp;filepath&nbsp;provided<br>
+:param&nbsp;filepath:&nbsp;the&nbsp;filepath&nbsp;that&nbsp;you&nbsp;want&nbsp;to&nbsp;create<br>
+:return:&nbsp;Code&nbsp;constant&nbsp;depending&nbsp;on&nbsp;success.&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;throw&nbsp;errors.&nbsp;Either&nbsp;GOOD&nbsp;or&nbsp;NO_FILE.</span></dd></dl>
+ <dl><dt><a name="-edit_data"><strong>edit_data</strong></a>(filepath: str)</dt><dd><span class="code">Opens&nbsp;the&nbsp;file&nbsp;in&nbsp;the&nbsp;user's&nbsp;default&nbsp;text&nbsp;editor<br>
+:param&nbsp;filepath:&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;.lcfg&nbsp;file<br>
+:return:&nbsp;Code&nbsp;constant&nbsp;depending&nbsp;on&nbsp;success.&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;throw&nbsp;errors.&nbsp;Either&nbsp;GOOD,&nbsp;NO_FILE&nbsp;or&nbsp;BAD_FILE</span></dd></dl>
+ <dl><dt><a name="-generate"><strong>generate</strong></a>(filepath: str, number_of_sentences: str)</dt><dd><span class="code">Generates&nbsp;a&nbsp;set&nbsp;number&nbsp;of&nbsp;sentences&nbsp;using&nbsp;a&nbsp;populated&nbsp;.lcfg&nbsp;file.<br>
+:param&nbsp;filepath:&nbsp;path&nbsp;to&nbsp;the&nbsp;.lcfg&nbsp;file&nbsp;that<br>
+you&nbsp;are&nbsp;generating&nbsp;from.<br>
+:param&nbsp;number_of_sentences:&nbsp;number&nbsp;of&nbsp;sentences&nbsp;to&nbsp;generate<br>
+:return:&nbsp;Success:&nbsp;the&nbsp;generated&nbsp;sentence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Failure:&nbsp;Code&nbsp;constant&nbsp;depending&nbsp;on&nbsp;success.&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;throw&nbsp;errors.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Either&nbsp;NO_FILE&nbsp;or&nbsp;NOT_ENOUGH_DATA</span></dd></dl>
+ <dl><dt><a name="-train_data"><strong>train_data</strong></a>(filepath: str, output_path: str, tag_method: str)</dt><dd><span class="code">Populates&nbsp;the&nbsp;.lcfg&nbsp;file&nbsp;with&nbsp;the&nbsp;data&nbsp;from&nbsp;the&nbsp;provided&nbsp;text&nbsp;file.&nbsp;Outsources&nbsp;to&nbsp;the&nbsp;scraper.<br>
+:param&nbsp;filepath:&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;.txt&nbsp;file&nbsp;that&nbsp;you&nbsp;are&nbsp;giving&nbsp;as&nbsp;input<br>
+:param&nbsp;output_path:&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;.lcfg&nbsp;file&nbsp;that&nbsp;you&nbsp;are&nbsp;wanting&nbsp;to&nbsp;output&nbsp;to<br>
+:param&nbsp;tag_method:&nbsp;the&nbsp;method&nbsp;of&nbsp;tagging<br>
+:return:&nbsp;Code&nbsp;constant&nbsp;depending&nbsp;on&nbsp;success.&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;throw&nbsp;errors.&nbsp;Either&nbsp;GOOD,&nbsp;NO_FILE&nbsp;or&nbsp;BAD_FILE</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>BAD_FILE</strong> = 140619768<br>
+<strong>BAD_OS</strong> = 18012007<br>
+<strong>GOOD</strong> = 1<br>
+<strong>NOT_ENOUGH_DATA</strong> = 25082003<br>
+<strong>NO_FILE</strong> = 12082021<br>
+<strong>TAG_BLOB</strong> = 2<br>
+<strong>TAG_CORE</strong> = 3<br>
+<strong>TAG_NLTK</strong> = 1</td></tr></table>
+</body></html>

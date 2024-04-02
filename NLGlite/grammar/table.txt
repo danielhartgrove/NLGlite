@@ -1,0 +1,38 @@
+Abbreviation	Meaning                                                 Included
+--------------------------------------------------------------------------------
+A               'a'                                                     Y
+CC	            coordinating conjunction                                Y
+CD	            cardinal digit                                          /
+DT	            determiner                                              Y
+EX	            existential there                                       N
+FW	            foreign word                                            /
+IN	            preposition/subordinating conjunction                   Y
+JJ	            adjective (large)                                       Y
+JJR	            adjective, comparative (larger)                         N
+JJS	            adjective, superlative (largest)                        N
+LS            	list market                                             /
+MD            	modal (could, will)                                     Y
+NM              name                                                    N
+NN            	noun, singular (cat, tree)                              Y
+NNS	            noun plural (desks)                                     N
+NNP	            proper noun, singular (sarah)                           Y
+NNPS	        proper noun, plural (indians or americans)              N
+PDT	            predeterminer (all, both, half)                         N
+POS	            possessive ending (parent\ ‘s)                          N
+PRP	            personal pronoun (hers, herself, him, himself)          Y
+PRP$          	possessive pronoun (her, his, mine, my, our )           Y
+RB	            adverb (occasionally, swiftly)                          Y
+RBR	            adverb, comparative (greater)                           N
+RBS	            adverb, superlative (biggest)                           N
+RP	            particle (about)                                        N
+TO	            infinite marker (to)                                    N
+UH	            interjection (goodbye)                                  N
+VB	            verb (ask)                                              Y
+VBG	            verb gerund (judging)                                   Y
+VBD	            verb past tense (pleaded)                               N
+VBN	            verb past participle (reunified)                        N
+VBP	            verb, present tense not 3rd person singular(wrap)       Y
+VBZ	            verb, present tense with 3rd person singular (bases)    Y
+WDT	            wh-determiner (that, what)                              Y
+WP	            wh- pronoun (who)                                       N
+WRB	            wh- adverb (how)                                        N

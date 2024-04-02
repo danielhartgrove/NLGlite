@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module NLGlite.trainer.reader</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="../NLGlite.html" class="white">NLGlite</a>.<a href="NLGlite.trainer.html" class="white">trainer</a>.reader</strong></td>
+<td class="extra"><a href="../..">index</a><br><a href="file:c%3A%5Cusers%5Cdanbo%5Cdocuments%5Cuon_compsci%5Cyear%203%5Ccomp3003%5Cproject%5Cnlglite%5Cnlglite%5Ctrainer%5Creader.py">c:\users\danbo\documents\uon_compsci\year 3\comp3003\project\nlglite\nlglite\trainer\reader.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-process_wordlist"><strong>process_wordlist</strong></a>(wordlist: [(&lt;class 'str'&gt;, &lt;class 'str'&gt;)])</dt><dd><span class="code">Postprocessing&nbsp;on&nbsp;the&nbsp;list&nbsp;of&nbsp;words&nbsp;and&nbsp;corrects&nbsp;commonly&nbsp;mistagged&nbsp;words.<br>
+:param&nbsp;wordlist:&nbsp;the&nbsp;list&nbsp;of&nbsp;words&nbsp;to&nbsp;process<br>
+:return:&nbsp;the&nbsp;new&nbsp;wordlist</span></dd></dl>
+ <dl><dt><a name="-read_file"><strong>read_file</strong></a>(filepath: str)</dt><dd><span class="code">Reads&nbsp;a&nbsp;text&nbsp;file&nbsp;and&nbsp;returns&nbsp;all&nbsp;the&nbsp;words&nbsp;in&nbsp;it.<br>
+:param&nbsp;filepath:&nbsp;The&nbsp;path&nbsp;to&nbsp;the&nbsp;.txt&nbsp;file&nbsp;to&nbsp;read&nbsp;from.<br>
+:return:&nbsp;Success:&nbsp;A&nbsp;string&nbsp;containing&nbsp;all&nbsp;words&nbsp;in&nbsp;the&nbsp;file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Failure:&nbsp;code&nbsp;constant&nbsp;depending&nbsp;on&nbsp;success.&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;throw&nbsp;errors.&nbsp;Either&nbsp;GOOD,&nbsp;NO_FILE&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAD_FILE</span></dd></dl>
+ <dl><dt><a name="-tag_process_dump"><strong>tag_process_dump</strong></a>(text: str, output_file_path: str, method: int)</dt><dd><span class="code">tags&nbsp;the&nbsp;text,&nbsp;processes&nbsp;it&nbsp;and&nbsp;dumps&nbsp;it&nbsp;to&nbsp;the&nbsp;output&nbsp;file&nbsp;using&nbsp;a&nbsp;specified&nbsp;method.<br>
+:param&nbsp;text:&nbsp;The&nbsp;text&nbsp;to&nbsp;be&nbsp;manipulated.<br>
+:param&nbsp;output_file_path:&nbsp;The&nbsp;output&nbsp;file&nbsp;to&nbsp;dump&nbsp;to.<br>
+:param&nbsp;method:&nbsp;The&nbsp;method&nbsp;used&nbsp;to&nbsp;tag&nbsp;the&nbsp;code.<br>
+:return:&nbsp;GOOD.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>BAD_FILE</strong> = 140619768<br>
+<strong>BAD_OS</strong> = 18012007<br>
+<strong>GOOD</strong> = 1<br>
+<strong>NOT_ENOUGH_DATA</strong> = 25082003<br>
+<strong>NO_FILE</strong> = 12082021<br>
+<strong>TAG_BLOB</strong> = 2<br>
+<strong>TAG_CORE</strong> = 3<br>
+<strong>TAG_NLTK</strong> = 1</td></tr></table>
+</body></html>

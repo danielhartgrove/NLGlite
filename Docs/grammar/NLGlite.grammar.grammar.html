@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module NLGlite.grammar.grammar</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="../NLGlite.html" class="white">NLGlite</a>.<a href="NLGlite.grammar.html" class="white">grammar</a>.grammar</strong></td>
+<td class="extra"><a href="../..">index</a><br><a href="file:c%3A%5Cusers%5Cdanbo%5Cdocuments%5Cuon_compsci%5Cyear%203%5Ccomp3003%5Cproject%5Cnlglite%5Cnlglite%5Cgrammar%5Cgrammar.py">c:\users\danbo\documents\uon_compsci\year 3\comp3003\project\nlglite\nlglite\grammar\grammar.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-generate_adjectives"><strong>generate_adjectives</strong></a>(token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;number&nbsp;of&nbsp;adjectives&nbsp;under&nbsp;the&nbsp;rule&nbsp;of&nbsp;three.&nbsp;Will&nbsp;more&nbsp;likely&nbsp;add&nbsp;0,&nbsp;1&nbsp;or&nbsp;3&nbsp;adjectives.<br>
+Called&nbsp;before&nbsp;the&nbsp;nouns&nbsp;to&nbsp;describe&nbsp;the&nbsp;nouns.<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_adjunct"><strong>match_adjunct</strong></a>(pattern, token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;an&nbsp;adjunct<br>
+:param&nbsp;pattern:&nbsp;The&nbsp;randomly&nbsp;chosen&nbsp;pattern&nbsp;that&nbsp;will&nbsp;be&nbsp;matched<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_complement"><strong>match_complement</strong></a>(pattern, token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;an&nbsp;object/subject&nbsp;complement<br>
+:param&nbsp;pattern:&nbsp;The&nbsp;randomly&nbsp;chosen&nbsp;pattern&nbsp;that&nbsp;will&nbsp;be&nbsp;matched<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_complex"><strong>match_complex</strong></a>(pattern, token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;a&nbsp;complex&nbsp;sentence<br>
+:param&nbsp;pattern:&nbsp;The&nbsp;randomly&nbsp;chosen&nbsp;pattern&nbsp;that&nbsp;will&nbsp;be&nbsp;matched<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_compound"><strong>match_compound</strong></a>(pattern, token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;a&nbsp;compound&nbsp;sentence<br>
+:param&nbsp;pattern:&nbsp;The&nbsp;randomly&nbsp;chosen&nbsp;pattern&nbsp;that&nbsp;will&nbsp;be&nbsp;matched<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_compound_complex"><strong>match_compound_complex</strong></a>(pattern, token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;a&nbsp;compound-complex&nbsp;sentence<br>
+:param&nbsp;pattern:&nbsp;The&nbsp;randomly&nbsp;chosen&nbsp;pattern&nbsp;that&nbsp;will&nbsp;be&nbsp;matched<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_dependent_clause"><strong>match_dependent_clause</strong></a>(token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;dependent&nbsp;clause<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_exclamation"><strong>match_exclamation</strong></a>(pattern, token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;an&nbsp;exclamation<br>
+:param&nbsp;pattern:&nbsp;The&nbsp;randomly&nbsp;chosen&nbsp;pattern&nbsp;that&nbsp;will&nbsp;be&nbsp;matched<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_independent_clause"><strong>match_independent_clause</strong></a>(pattern, token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;an&nbsp;independent&nbsp;clause&nbsp;(simple&nbsp;sentence)<br>
+:param&nbsp;pattern:&nbsp;The&nbsp;randomly&nbsp;chosen&nbsp;pattern&nbsp;that&nbsp;will&nbsp;be&nbsp;matched<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_noun"><strong>match_noun</strong></a>(pattern, token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;a&nbsp;noun.&nbsp;Determines&nbsp;the&nbsp;context&nbsp;that&nbsp;the&nbsp;noun&nbsp;is&nbsp;used.<br>
+:param&nbsp;pattern:&nbsp;The&nbsp;randomly&nbsp;chosen&nbsp;pattern&nbsp;that&nbsp;will&nbsp;be&nbsp;matched<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_object"><strong>match_object</strong></a>(token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;a&nbsp;sentence&nbsp;object,&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;the&nbsp;match_noun&nbsp;function&nbsp;patterns&nbsp;3-5<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_question"><strong>match_question</strong></a>(token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;a&nbsp;question<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_sentence"><strong>match_sentence</strong></a>(pattern, token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;a&nbsp;complex&nbsp;sentence;&nbsp;data&nbsp;from&nbsp;sentence&nbsp;weighting&nbsp;taken&nbsp;from:<br>
+#&nbsp;<a href="https://www.researchgate.net/figure/Grouped-Frequency-Distribution-of-Sentence-Combinations_tbl1_343795196">https://www.researchgate.net/figure/Grouped-Frequency-Distribution-of-Sentence-Combinations_tbl1_343795196</a><br>
+:param&nbsp;pattern:&nbsp;The&nbsp;randomly&nbsp;chosen&nbsp;pattern&nbsp;that&nbsp;will&nbsp;be&nbsp;matched<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_subject"><strong>match_subject</strong></a>(pattern, token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;a&nbsp;sentence&nbsp;subject<br>
+:param&nbsp;pattern:&nbsp;The&nbsp;randomly&nbsp;chosen&nbsp;pattern&nbsp;that&nbsp;will&nbsp;be&nbsp;matched<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+ <dl><dt><a name="-match_verb_phrase"><strong>match_verb_phrase</strong></a>(pattern, token_queue)</dt><dd><span class="code">Matches&nbsp;the&nbsp;possible&nbsp;token&nbsp;patterns&nbsp;of&nbsp;a&nbsp;verb&nbsp;phrase<br>
+:param&nbsp;pattern:&nbsp;The&nbsp;randomly&nbsp;chosen&nbsp;pattern&nbsp;that&nbsp;will&nbsp;be&nbsp;matched<br>
+:param&nbsp;token_queue:&nbsp;Reference&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;tokens&nbsp;that&nbsp;will&nbsp;be&nbsp;added&nbsp;to<br>
+:return:&nbsp;None</span></dd></dl>
+</td></tr></table>
+</body></html>

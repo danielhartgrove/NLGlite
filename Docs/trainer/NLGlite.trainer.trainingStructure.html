@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module NLGlite.trainer.trainingStructure</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="../NLGlite.html" class="white">NLGlite</a>.<a href="NLGlite.trainer.html" class="white">trainer</a>.trainingStructure</strong></td>
+<td class="extra"><a href="../..">index</a><br><a href="file:c%3A%5Cusers%5Cdanbo%5Cdocuments%5Cuon_compsci%5Cyear%203%5Ccomp3003%5Cproject%5Cnlglite%5Cnlglite%5Ctrainer%5Ctrainingstructure.py">c:\users\danbo\documents\uon_compsci\year 3\comp3003\project\nlglite\nlglite\trainer\trainingstructure.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+</td><td class="multicolumn"><a href="NLGlite.trainer.wordPair.html">NLGlite.trainer.wordPair</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="NLGlite.trainer.trainingStructure.html#trainingStructure">trainingStructure</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="trainingStructure">class <strong>trainingStructure</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">This&nbsp;class&nbsp;is&nbsp;responsible&nbsp;for&nbsp;storing&nbsp;the&nbsp;training&nbsp;structure&nbsp;of&nbsp;the&nbsp;NLGlite&nbsp;library.<br>
+It&nbsp;is&nbsp;essentially&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;a&nbsp;2-D&nbsp;array&nbsp;and&nbsp;functions.<br>
+&nbsp;<br>
+Each&nbsp;element&nbsp;in&nbsp;the&nbsp;2-D&nbsp;array&nbsp;contains&nbsp;entries&nbsp;for&nbsp;[WORD,&nbsp;TYPE,&nbsp;WORD,&nbsp;TYPE,&nbsp;FREQ];<br>
+First&nbsp;Word,&nbsp;Token&nbsp;of&nbsp;First&nbsp;word,&nbsp;Second&nbsp;Word,&nbsp;Token&nbsp;of&nbsp;Second&nbsp;Word,&nbsp;Frequency&nbsp;of&nbsp;this&nbsp;Word&nbsp;Pair&nbsp;occurrence.<br>
+&nbsp;<br>
+[WORD,&nbsp;TYPE,&nbsp;WORD,&nbsp;TYPE,&nbsp;FREQ]<br>
+[0&nbsp;&nbsp;&nbsp;,&nbsp;1&nbsp;&nbsp;&nbsp;,&nbsp;2&nbsp;&nbsp;&nbsp;,&nbsp;3&nbsp;&nbsp;&nbsp;,&nbsp;4&nbsp;&nbsp;&nbsp;]<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="trainingStructure-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialise&nbsp;the&nbsp;data&nbsp;as&nbsp;a&nbsp;blank&nbsp;array</span></dd></dl>
+
+<dl><dt><a name="trainingStructure-__str__"><strong>__str__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;the&nbsp;training&nbsp;structure&nbsp;for&nbsp;each&nbsp;entry.</span></dd></dl>
+
+<dl><dt><a name="trainingStructure-dump_to_file"><strong>dump_to_file</strong></a>(self, file_path: str)</dt><dd><span class="code">Dumps&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;training&nbsp;data&nbsp;to&nbsp;a&nbsp;file&nbsp;specified.<br>
+:param&nbsp;file_path:&nbsp;the&nbsp;path&nbsp;of&nbsp;the&nbsp;file&nbsp;to&nbsp;dump&nbsp;to.<br>
+:return:</span></dd></dl>
+
+<dl><dt><a name="trainingStructure-get_size"><strong>get_size</strong></a>(self)</dt><dd><span class="code">Returns&nbsp;the&nbsp;number&nbsp;of&nbsp;entries&nbsp;in&nbsp;the&nbsp;training&nbsp;structure<br>
+:return:</span></dd></dl>
+
+<dl><dt><a name="trainingStructure-get_wordlist"><strong>get_wordlist</strong></a>(self)</dt><dd><span class="code">Returns&nbsp;a&nbsp;list&nbsp;containing&nbsp;every&nbsp;word&nbsp;in&nbsp;the&nbsp;training&nbsp;structure<br>
+:return:&nbsp;The&nbsp;list&nbsp;of&nbsp;words.</span></dd></dl>
+
+<dl><dt><a name="trainingStructure-insert"><strong>insert</strong></a>(self, word_pair: &lt;module 'NLGlite.trainer.wordPair' from 'C:\\Users\\Danbo\\Documents\\UoN_CompSci\\Year 3\\COMP3003\\Project\\NLGlite\\NLGlite\\trainer\\wordPair.py'&gt;, word_pair2: &lt;module 'NLGlite.trainer.wordPair' from 'C:\\Users\\Danbo\\Documents\\UoN_CompSci\\Year 3\\COMP3003\\Project\\NLGlite\\NLGlite\\trainer\\wordPair.py'&gt;)</dt><dd><span class="code">Inserts&nbsp;a&nbsp;new&nbsp;word_pair&nbsp;into&nbsp;the&nbsp;training&nbsp;structure.&nbsp;Used&nbsp;in&nbsp;the&nbsp;training&nbsp;process.<br>
+:param&nbsp;word_pair:&nbsp;The&nbsp;first&nbsp;word_pair&nbsp;<a href="builtins.html#object">object</a><br>
+:param&nbsp;word_pair2:&nbsp;The&nbsp;second&nbsp;word_pair&nbsp;<a href="builtins.html#object">object</a><br>
+:return:&nbsp;GOOD&nbsp;status.</span></dd></dl>
+
+<dl><dt><a name="trainingStructure-parse_from"><strong>parse_from</strong></a>(self, file_path: str)</dt><dd><span class="code">Parses&nbsp;a&nbsp;.lcfg&nbsp;file&nbsp;and&nbsp;updates&nbsp;the&nbsp;training&nbsp;data.<br>
+:param&nbsp;file_path:&nbsp;The&nbsp;file&nbsp;path&nbsp;of&nbsp;the&nbsp;.txt&nbsp;file&nbsp;to&nbsp;parse.<br>
+:return:&nbsp;success:&nbsp;GOOD<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;failure:&nbsp;N0_FILE&nbsp;or&nbsp;BAD_FILE</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>data</strong> = []</dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>BAD_FILE</strong> = 140619768<br>
+<strong>BAD_OS</strong> = 18012007<br>
+<strong>GOOD</strong> = 1<br>
+<strong>NOT_ENOUGH_DATA</strong> = 25082003<br>
+<strong>NO_FILE</strong> = 12082021<br>
+<strong>TAG_BLOB</strong> = 2<br>
+<strong>TAG_CORE</strong> = 3<br>
+<strong>TAG_NLTK</strong> = 1</td></tr></table>
+</body></html>
