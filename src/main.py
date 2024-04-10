@@ -4,7 +4,7 @@ from tkinter import filedialog
 import pyperclip
 # public packages
 
-from NLGlite.NLGlite import _NLGlite_ as nlg
+from NLGlite.NLGlite import NLGlite_ as nlg
 
 method = "CORE"
 num_of_sentences = 1
@@ -87,7 +87,7 @@ def edit(filepath: str):
 
 def generate(filepath: str, number_of_sentences: str):
     model.set_config_file_path(filepath)
-    return model.generate_sentences(int(number_of_sentences))
+    return model.generate_sentences(int(number_of_sentences), True)
 
 
 def open_clear_popup(filepath: str):
@@ -174,7 +174,7 @@ def __main__():
     run_frame.pack(side=TOP, pady=3)
 
     go_button = Button(root, text="Generate",
-                       command=lambda: update_output_box(output_box, generate(lcfg_box.get(), num_of_sentences)))
+                       command=lambda: update_output_box(output_box, generate(lcfg_box.get(), str(num_of_sentences))))
     go_button.pack(side=TOP, pady=7, padx=10)
 
     # Output Window

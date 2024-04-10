@@ -2,10 +2,10 @@
 """
 Constants for bad error returns - so that users can create popups if the things don't work for a specific reason.
 """
-NOT_ENOUGH_DATA = 25082003
-NO_FILE = 12082021
+NOT_ENOUGH_DATA = 15082003
+NO_FILE = 29122002
 BAD_OS = 18012007
-BAD_FILE = 140619768
+BAD_FILE = 14061978
 
 """
 Good returns

@@ -36,14 +36,14 @@ class grammar:
         """
         x = generate_number(0, 18)
         if 5 <= x <= 10:
-            self.token_queue.append("DT")
+            self.token_queue.append("JJ")
         elif 11 <= x <= 13:
-            self.token_queue.append("DT")
-            self.token_queue.append("DT")
+            self.token_queue.append("JJ")
+            self.token_queue.append("JJ")
         elif 14 <= x <= 18:
-            self.token_queue.append("DT")
-            self.token_queue.append("DT")
-            self.token_queue.append("DT")
+            self.token_queue.append("JJ")
+            self.token_queue.append("JJ")
+            self.token_queue.append("JJ")
 
     def match_noun(self, pattern):
         """
@@ -258,7 +258,7 @@ class grammar:
         :return: None
         """
         if 1 <= pattern <= 21:
-            self.match_complex(generate_number(1,2))
+            self.match_complex(generate_number(1, 2))
             self.token_queue.append(".")
         elif 22 == pattern:
             self.match_compound_complex(generate_number(1, 2))

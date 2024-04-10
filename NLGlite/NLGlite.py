@@ -7,7 +7,16 @@ from NLGlite.trainer import reader, trainingStructure
 from NLGlite.grammar.grammar import grammar as g
 
 
-class _NLGlite_:
+def capitalise(s: str):
+    """
+    wrapper for the .capitalize() function because it doesn't work on array elements
+    :param s: The word to capitalize
+    :return: The capitalized word
+    """
+    return s.capitalize()
+
+
+class NLGlite_:
     """
     NLGlite is a class that wraps the functions in the trainer and provides an easy interface to train and use the
     NLGlite system.
@@ -36,14 +45,6 @@ class _NLGlite_:
             return GOOD
         except:
             return NO_FILE
-
-    def capitalise(self, s: str):
-        """
-        wrapper for the .capitalize() function because it doesn't work on array elements
-        :param s: The word to capitalize
-        :return: The capitalized word
-        """
-        return s.capitalize()
 
     def get_config_file_path(self) -> str:
         """
@@ -96,10 +97,11 @@ class _NLGlite_:
             reader.tag_process_dump(data, self.config_file_path, 1)
             return GOOD
 
-    def generate_sentences(self, number_of_sentences: int):
+    def generate_sentences(self, number_of_sentences: int, trace: bool):
         """
             Generates a set number of sentences using a populated .lcfg file.
             you are generating from.
+            :param trace: boolean to see if you want the trace output for the generation
             :param number_of_sentences: number of sentences to generate
             :return: Success: the generated sentence
                      Failure: Code constant depending on success. This can be used to throw errors.
@@ -122,7 +124,8 @@ class _NLGlite_:
             grammar.generate()
         self.token_queue = grammar.get_token_queue()
 
-        print(self.token_queue)  # these are the tokens that we will be matching
+        if trace:
+            print(self.token_queue)  # these are the tokens that we will be matching
 
         # generate the words for the paragraph
         last_word = ""  # set the last word to be nothing
@@ -157,21 +160,23 @@ class _NLGlite_:
                                 item[2])  # this is added to the list of possible items we could move to
                             transition_vector.append(item[4])  # and this is the probability we are choosing it
 
-                print("Token: ", token, "| Lookup Vector: ", lookup_vector, "\nToken: ", token, "| Transition vector: ",
-                      transition_vector, " | SizeOf: ", len(transition_vector), "\n")
+                if trace:
+                    print("Token: ", token, "| Lookup Vector: ", lookup_vector, "\nToken: ", token, "| Transition "
+                                                                                                    "vector: ",
+                          transition_vector, " | SizeOf: ", len(transition_vector), "\n")
 
                 if len(transition_vector) != 0:  # if there are words to choose from...
                     # select a word and append it to the paragraph, then increment i to move to the next word
                     last_word = select_word_with_bias(transition_vector, lookup_vector)
                     paragraph.append(last_word)
                     i += 1
-                    print("last_word =" + last_word)
                 elif last_word != "":  # otherwise, the vector has no words, and so we just pick a random one of type
                     last_word = ""
-                    print("last_word =" + last_word)
                 else:
                     return NOT_ENOUGH_DATA
 
+                if trace:
+                    print("Last Word = ", last_word)
                 # stops the memory monster growing
                 del transition_vector
                 del lookup_vector
@@ -182,12 +187,12 @@ class _NLGlite_:
         i = 1
         stop_chars = [".", "?", "!", "..."]
         space_chars = stop_chars + [",", ":", ";", "-"]
-        output = self.capitalise(paragraph[0]) + " "
+        output = capitalise(paragraph[0]) + " "
 
         while i < len(paragraph):
             # if the previous token was a sentence end then we start the new sentence by capitalising it
             if paragraph[i - 1] in stop_chars:
-                paragraph[i] = self.capitalise(paragraph[i])
+                paragraph[i] = capitalise(paragraph[i])
             else:
                 paragraph[i] = paragraph[i].lower()
 

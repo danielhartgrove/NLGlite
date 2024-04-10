@@ -84,8 +84,6 @@ def tag_process_dump(text: str, output_file_path: str, method: int):
         # this will update the word pair's frequency if it already exists in the data structure else set it to 1
         ts.insert(wp1, wp2)
         # this stops the rapid consumption of memory
-        del wp1
-        del wp2
         # dump the data structure to a file
     ts.dump_to_file(output_file_path)
     del ts

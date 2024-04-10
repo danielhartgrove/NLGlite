@@ -3,6 +3,7 @@ import os
 from NLGlite.trainer import wordPair
 from NLGlite.constants.constants import *
 
+
 class trainingStructure:
     """
     This class is responsible for storing the training structure of the NLGlite library.
