@@ -1,4 +1,4 @@
-from NLGlite.stochastics.stochastics import generate_number
+from stochastics.stochastics import generate_number
 
 
 class grammar:
@@ -126,27 +126,6 @@ class grammar:
             self.token_queue.append("VB")
         else:
             self.token_queue.append("VBG")
-
-    def match_adjunct(self, pattern):
-        """
-        Matches the possible token patterns of an adjunct
-        :param pattern: The randomly chosen pattern that will be matched
-        :return: None
-        """
-        self.match_subject(0)
-        if pattern == 1:
-            self.match_verb_phrase(generate_number(1, 3))
-            self.match_complement(generate_number(1, 3))
-        elif pattern == 2:
-            self.match_verb_phrase(generate_number(1, 3))
-            self.match_object()
-        elif pattern == 3:
-            self.match_object()
-            self.match_object()
-        elif pattern == 4:
-            self.match_verb_phrase(generate_number(1, 3))
-            self.match_object()
-            self.match_complement(generate_number(1, 3))
 
     def match_independent_clause(self, pattern):
         """

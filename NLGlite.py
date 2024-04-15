@@ -1,10 +1,10 @@
 import os
 import subprocess
 
-from NLGlite.stochastics.stochastics import select_word_with_bias
-from NLGlite.constants.constants import *
-from NLGlite.trainer import reader, trainingStructure
-from NLGlite.grammar.grammar import grammar as g
+from stochastics.stochastics import select_word_with_bias
+from trainer import trainingStructure
+from trainer import reader
+from grammar import grammar as g
 
 
 def capitalise(s: str):

@@ -1,7 +1,6 @@
 import os
 
-from NLGlite.trainer import wordPair
-from NLGlite.constants.constants import *
+from trainer import wordPair
 
 
 class trainingStructure:

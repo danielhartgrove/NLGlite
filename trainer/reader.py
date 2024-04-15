@@ -1,9 +1,8 @@
 import os
 
-from NLGlite.constants.constants import *
-from NLGlite.trainer.tagger import tag_nltk, tag_blob, tag_core
-from NLGlite.trainer.trainingStructure import trainingStructure
-from NLGlite.trainer.wordPair import wordPair
+from trainer.tagger import tag_nltk, tag_blob, tag_core
+from trainer.trainingStructure import trainingStructure
+from trainer.wordPair import wordPair
 
 
 # read a file and return the contents
