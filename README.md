@@ -1,4 +1,4 @@
-# NLGlite
+# [NLGlite](https://test.pypi.org/project/NLGLite/1.0.0/)
 A Lightweight NLP Solution Authored by Daniel Hartgrove for Dissertation Project @ The University of Nottingham (COMP3003). Supervised by Dr I Knight.
 
 ## Abstract
