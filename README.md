@@ -1,47 +1,47 @@
-# [NLGlite](https://test.pypi.org/project/NLGLite/1.0.0/)
-A Lightweight NLP Solution Authored by Daniel Hartgrove for Dissertation Project @ The University of Nottingham (COMP3003). Supervised by Dr I Knight.
+# [NLGlite](https://test.pypi.org/project/NLGlite/)
+A Lightweight NLP Solution Authored by Daniel Hartgrove for a Dissertation Project @ The University of Nottingham (COMP3003). Supervised by Dr I Knight.
 
 ## Abstract
-This project was developed as a part of my dissertation for my Batchelor's degree at the University of Nottingham. You can read my dissertation, when published [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+This project was developed as a part of my dissertation for my Bachelor's degree at the University of Nottingham. You can read my dissertation when published [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ## Dependencies
-This project requires that you have Python 3 install. This can be installed [here](https://www.python.org/downloads/)
+This project requires that you have Python 3 installed. This can be installed [here](https://www.python.org/downloads/)
 This project also requires that you have the [NLTK](https://www.nltk.org/install.html) installed, as well as [spacy](https://spacy.io/).
 
-## How to Run
-This project is ~~delightfully simple~~ easy to install and run:
-- Simply download the files from this page
-- Download NLTK by opening your preferred terminal and using the command `pip install nltk`
-- Download spaCy by then running the command `pip install spacy`, followed by `python -m spacy downlaod en_core_web_sm`
-- Then use your preferred terminal to navigate to the location of the project files
-- Run the command `python3 NLGLite` to open the application
+# NLGlite
+A Lightweight NLP Solution authored by Daniel Hartgrove for a Dissertation Project at The University of Nottingham. Supervised by Dr I Knight.
 
-## How to use
-#### Main UI:
-- The Main UI is split into sections, at the top you can input the file path of the .lcfg (liteconfig) file that you want to run.
-- Next, are the options for operating on this file:
-  - **Clear:** Remove all content from the config
-  - **Train:** Opens the training window
-  - **Edit:** Manually edit the file to tweak the config. Opens in the default text editor for your OS.
-- Below that is the "generate" button. This will generate text based on the .lcfg file. This will output to the output box.
-- At the bottom of the screen are two buttons, one copies the contents of the output box to the clipboard and the other will clear the output box.
+## Abstract
+This project was developed as a part of my dissertation for my Batchelor's degree at the University of Nottingham. You can read my dissertation when published [here](https://www.danielhartgrove.xyz/dissertation)
 
-#### Clear Popup:
-- If you click **"Yes"**, the data will be emptied.
-- If you click **"No"**, the popup will close.
+## Dependencies
+This project requires that you have Python 3 installed. This can be installed [here](https://www.python.org/downloads/)
+You must also have `nltk` and `textblob` installed also. This can be done by simply running the following commands:
+- `pip install nltk`
+- `pip install -U textblob`
 
-#### Training UI:
-- The first two entry boxes are for the .lcfg output file (which if left blank will create a new training_data file) and the .txt file to train on.
-  - The program will only work on .txt files in utf-8.
-- Then you can toggle the tagging method used.
-  - The available methods are POS and BLOB tagging. 
-- You can then Train the model, and once the button pops back up training is complete.
-- You can also cancel to back out of the training UI.
+## Instructions for Use
+- Import the object using the command; `from NLGLite.NLGLite import NLGlite_ as nlglite`
+- Create an instance of the object using the command; `nlg = nlglite()`
+- Ask the object to create a `.lcfg` file by running the command; `nlg.make_new_config_file("path_to_file")`, alternatively run the command `nlg.set_config_file_path("path_to_file")`
+- Train the object on a `.txt` file. You can do this by running the command; `nlg.train("path_to_text", "method")`
+- You can then run the command; `nlg.generate_sentences(number of sentences, trace)` to generate random text.
+  - If you want to see a trace of the output, you should pass `true` into this function. Otherwise, pass `false`
+  - False is the default value for `trace`
 
+- Various constants are returned on success and failure:
+  ```
+  NOT_ENOUGH_DATA = 15082003
+  NO_FILE = 29122002
+  BAD_OS = 18012007
+  BAD_FILE = 14061978
+  GOOD = 26061976
+  ```
+  
 ## Capabilities
-Currently, this project is able to produce syntactically correct, but limited nonsense text. 
-It does this using a Markov and Zipfian Driven Grammar, based on the work of Markov, Zipf, Chomsky, Kelmendi and Compton.
-In the future, these sentences _should_ make sense all the time.
+Currently, this project can produce syntactically correct, but limited nonsense text. The project has only been
+tested on training data of around 2000 KB in size.
+
 
 ## References
 Properly formatted references will be added shortly
