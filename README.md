@@ -2,7 +2,7 @@
 A Lightweight NLP Solution Authored by Daniel Hartgrove for a Dissertation Project @ The University of Nottingham (COMP3003). Supervised by Dr I Knight.
 
 ## Abstract
-This project was developed as a part of my dissertation for my Bachelor's degree at the University of Nottingham. You can read my dissertation when published [here](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+This project was developed as a part of my dissertation for my Bachelor's degree at the University of Nottingham. You can read my dissertation when published [here](https://www.danielhartgrove.xyz/danielhartgrove_dissertation.pdf)
 
 ## Dependencies
 This project requires that you have Python 3 installed. This can be installed [here](https://www.python.org/downloads/)
